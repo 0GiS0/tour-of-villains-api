@@ -4,7 +4,8 @@ docker run \
 -e 'SA_PASSWORD=Password1!' \
 -e 'MSSQL_PID=Express' \
 --name sqlserver \
- -v mssqlserver_volume:/var/opt/mssql \
+-v mssqlserver_volume:/var/opt/mssql \
+--restart always \
 -p 1433:1433 -d mcr.microsoft.com/mssql/server:latest
 
 # Apple M1

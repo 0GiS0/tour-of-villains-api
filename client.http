@@ -1,4 +1,4 @@
-GET http://localhost:5111/villain HTTP/1.1
+GET http://localhost:5111/villain/batman HTTP/1.1
 
 ###
 POST http://localhost:5111/villain HTTP/1.1
