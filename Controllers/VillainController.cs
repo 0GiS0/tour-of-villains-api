@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using tour_of_villains.Models;
+using tour_of_villains_api.Models;
 
 namespace tour_of_villains_api.Controllers;
 
@@ -7,15 +7,10 @@ namespace tour_of_villains_api.Controllers;
 [Route("[controller]")]
 public class VillainController : ControllerBase
 {
-
-    // GET: api/villain
+    // GET: /villain
     [HttpGet]
-    public Hero GetVillain()
+    public Villain GetVillain()
     {
-        return new Hero
-        {
-            Name = "This is a test"
-        };
-
+        return new Villain { Name = "This is a test" };
     }
 }
