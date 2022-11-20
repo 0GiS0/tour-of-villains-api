@@ -17,8 +17,7 @@ public class VillainController : ControllerBase
     // GET: /villain
     [HttpGet("{heroName}")]
     public Villain GetVillain(string heroName)
-    {
-        //return new Villain { Name = "This is a test" };
+    {        
         return _context.Villains.Where<Villain>(v => v.Hero == heroName).SingleOrDefault();
     }
 
