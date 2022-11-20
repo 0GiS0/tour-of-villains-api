@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using tour_of_villains_api.Models;
 
 namespace tour_of_villains_api.Controllers;
@@ -17,8 +18,11 @@ public class VillainController : ControllerBase
     // GET: /villain
     [HttpGet("{heroName}")]
     public Villain GetVillain(string heroName)
-    {        
-        return _context.Villains.Where<Villain>(v => v.Hero == heroName).SingleOrDefault();
+    {
+        return _context.Villains
+            .Include(v => v.Hero)
+            .Where<Villain>(v => v.Hero.Name == heroName)
+            .SingleOrDefault();
     }
 
     // POST: /villain

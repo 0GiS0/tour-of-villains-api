@@ -8,8 +8,8 @@ namespace tour_of_villains_api.Models
         {
             Database.EnsureCreated();
         }
-        public DbSet<Villain> Villains { get; set; }
 
-        public DbSet<Hero> Heroes {get;set;}
+        public DbSet<Villain> Villains { get; set; }
+        public DbSet<Hero> Heroes { get; set; }
     }
 }
