@@ -25,7 +25,9 @@
             "type": "dapr",
             "dependsOn": "build",
             "httpPort": 3501,
-            "grpcPort": 50001
+            "grpcPort": 50001,         
+            "logLevel": "debug",
+            "componentsPath": "./components"
         },
         {
             "appId": "tour-of-villains-api",

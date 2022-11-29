@@ -1,3 +1,4 @@
+using Dapr.Client;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using tour_of_villains_api.Models;
@@ -32,6 +33,11 @@ public class VillainController : ControllerBase
     {
         _context.Villains.Add(villain);
         await _context.SaveChangesAsync();
+
+        // Add a publication with the new villain
+        using var client = new DaprClientBuilder().Build();
+        //Using Dapr SDK to publish a topic
+        await client.PublishEventAsync("villain-pub-sub", "villains", villain);
 
         return CreatedAtAction(nameof(GetVillain), new { heroName = villain.Hero }, villain);
     }
