@@ -27,8 +27,8 @@
             "httpPort": 3501,
             "grpcPort": 50001,
             "logLevel": "debug",
-            // "config": "./config-dapr/jaeger-config.yaml"
-            // "componentsPath": "./components"
+            // "config": "./config-dapr/jaeger-config.yaml",
+            "componentsPath": "./components"
         },
         {
             "appId": "tour-of-villains-api",
