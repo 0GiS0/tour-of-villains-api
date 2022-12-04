@@ -15,10 +15,10 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:3501/v1.0/invoke/tour-of-villains-api/method/villain/batman HTTP/1.1
+GET  http://localhost:5111/villain/batman HTTP/1.1
 
 ###
-POST http://localhost:3501/v1.0/invoke/tour-of-villains-api/method/villain HTTP/1.1
+POST  http://localhost:5111/villain HTTP/1.1
 content-type: application/json
 
 {
@@ -32,7 +32,7 @@ content-type: application/json
 }
 
 ###
-POST http://localhost:3501/v1.0/invoke/tour-of-villains-api/method/villain HTTP/1.1
+POST  http://localhost:5111/villain HTTP/1.1
 content-type: application/json
 
 {
@@ -46,7 +46,7 @@ content-type: application/json
 }
 
 ###
-POST http://localhost:3501/v1.0/invoke/tour-of-villains-api/method/villain HTTP/1.1
+POST  http://localhost:5111/villain HTTP/1.1
 content-type: application/json
 
 {
@@ -61,5 +61,5 @@ content-type: application/json
 
 
 ###
-GET http://localhost:3501/v1.0/invoke/tour-of-villains-api/method/villain/spiderman HTTP/1.1
+GET  http://localhost:5111/villain/thor HTTP/1.1
 
