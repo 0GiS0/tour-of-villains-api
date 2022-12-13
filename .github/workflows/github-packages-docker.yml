@@ -2,7 +2,7 @@ name: GitHub Packages demo for Dapr
 
 on:
   push:
-    branches: [dapr]
+    branches: [main]
 
 jobs:
   build:   
