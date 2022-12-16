@@ -10,10 +10,19 @@ namespace tour_of_villains_api.Controllers;
 public class VillainController : ControllerBase
 {
     private VillainContext _context;
+    private DaprClient _daprClient;
 
-    public VillainController(VillainContext context)
+    public VillainController(VillainContext context, DaprClient daprClient)
     {
         _context = context;
+        _daprClient = _daprClient;
+    }
+
+    // GET: /villain
+    [HttpGet]
+    public IEnumerable<Villain> GetVillains()
+    {
+        return _context.Villains.ToList();            
     }
 
     // GET: /villain
@@ -34,10 +43,8 @@ public class VillainController : ControllerBase
         _context.Villains.Add(villain);
         await _context.SaveChangesAsync();
 
-        // Add a publication with the new villain
-        using var client = new DaprClientBuilder().Build();
         //Using Dapr SDK to publish a topic
-        await client.PublishEventAsync("villain-pub-sub", "villains", villain);
+        await _daprClient.PublishEventAsync("villain-pub-sub", "villains", villain);
 
         return CreatedAtAction(nameof(GetVillain), new { heroName = villain.Hero }, villain);
     }
