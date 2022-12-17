@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using tour_of_villains_api.Models;
-using Dapr.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,17 +7,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDaprClient();
 
 // Add services to the container.
-
-using var daprClient = new DaprClientBuilder().Build();
-
-await daprClient.WaitForSidecarAsync();
-
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<VillainContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<VillainContext>(
+    opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
 var app = builder.Build();
 

@@ -15,14 +15,14 @@ public class VillainController : ControllerBase
     public VillainController(VillainContext context, DaprClient daprClient)
     {
         _context = context;
-        _daprClient = _daprClient;
+        _daprClient = daprClient;
     }
 
     // GET: /villain
     [HttpGet]
     public IEnumerable<Villain> GetVillains()
     {
-        return _context.Villains.ToList();            
+        return _context.Villains.ToList();
     }
 
     // GET: /villain
